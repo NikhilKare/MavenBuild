@@ -22,8 +22,9 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
     - name: Trigger Jenkins Pipeline
-      run: | 
-        curl -X POST http://localhost:8080/job/InsuredAssurance_tomcat-deploy-pipeline/build \
-        --user admin:11ff8236c8ac9a1a3c3bce65dcf727c5c3
+      run: |
+        CRUMB=$(curl -s --user admin:11ff8236c8ac9a1a3c3bce65dcf727c5c3 http://localhost:8080/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,":",//crumb\))
+        curl -X POST http://jenkins.mycompany.com:8080/job/InsuredAssurance_tomcat-deploy-pipeline/build \
+        --user admin:11ff8236c8ac9a1a3c3bce65dcf727c5c3 \
+        -H "$CRUMB"

@@ -24,6 +24,6 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Trigger Jenkins Pipeline
       run: |
-       curl -X POST http://172-31-26-67:8080/job/InsuredAssurance_tomcat-deploy-pipeline/build \
+       curl -X POST http://172.31.26.67:8080/job/InsuredAssurance_tomcat-deploy-pipeline/build \
        --user admin:11ff8236c8ac9a1a3c3bce65dcf727c5c3
 

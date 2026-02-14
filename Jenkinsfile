@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/hkshitesh/MavenBuild.git'
+                git 'https://github.com/NikhilKare/MavenBuild.git'
             }
         }
 
